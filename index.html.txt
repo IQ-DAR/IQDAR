@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحميل التطبيق</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: #f4f6f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            color: #333;
+        }
+        .card {
+            background: #ffffff;
+            padding: 35px 25px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            max-width: 360px;
+            width: 90%;
+        }
+        h2 { margin-top: 0; font-size: 22px; }
+        p { color: #666; font-size: 15px; margin-bottom: 25px; }
+        .btn {
+            display: block;
+            padding: 14px;
+            margin: 10px 0;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            color: #fff;
+        }
+        .ios { background-color: #000000; }
+        .android { background-color: #01875f; }
+    </style>
+    <script>
+        // ضع روابط تطبيقك الحقيقية بين علامتي التنصيص بالأسفل
+        var iosLink = "https://apps.apple.com/sa/iphone/search?l=ar&term=iqdar";
+        var androidLink = "https://play.google.com/store/apps/details?id=com.iqdar.app&hl=gsw";
+
+        window.onload = function() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // توجيه تلقائي للأندرويد
+            if (/android/i.test(userAgent)) {
+                window.location.replace(androidLink);
+            }
+            // توجيه تلقائي للآيفون والآيباد
+            else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.replace(iosLink);
+            }
+        };
+    </script>
+</head>
+<body>
+
+<div class="card">
+    <h2>تحميل التطبيق</h2>
+    <p>جاري تحويلك تلقائياً إلى المتجر المناسب لجهازك...</p>
+    
+    <!-- أزرار احتياطية تظهر لأجهزة الكمبيوتر أو عند تأخر التحويل -->
+    <a id="btn-ios" href="ضع_هنا_رابط_آب_ستور" class="btn ios">التحميل من App Store</a>
+    <a id="btn-android" href="ضع_هنا_رابط_جوجل_بلاي" class="btn android">التحميل من Google Play</a>
+</div>
+
+</body>
+</html>
